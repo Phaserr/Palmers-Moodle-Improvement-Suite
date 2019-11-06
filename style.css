@@ -16,6 +16,9 @@
     display: none;
     background: none;
 }
+.page-context-header{
+	display:block
+}
 
 .pull-xs-left,
 #nav-drawer,
