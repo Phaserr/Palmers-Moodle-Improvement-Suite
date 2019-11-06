@@ -1,0 +1,17 @@
+{
+    "manifest_version": 2,
+    "name": "Palmers Moodle Improvement Suite [PMIS]",
+    "version": "0.1.2",
+    "description": "An extension that changes the way the USP College moodle website behaves.",
+    "content_scripts": [{
+        "css": [
+            "style.css"
+        ],
+        "js": [
+            "videoRemove.js"
+        ],
+        "matches": [
+            "https://portal.uspcollege.ac.uk/moodle/*"
+        ]
+    }]
+}
