@@ -1,10 +1,15 @@
-.navbar-light,.yui3-widget-content-expanded,.card-header,tbody,td,tr {
+.navbar-light,
+.yui3-widget-content-expanded,
+.card-header,
+tbody,
+td,
+tr {
     background: #1D1C1A !important;
-	color: white !important;
+    color: white !important;
 }
 
-.moodle-dialogue-hd{
-	background:white !important;
+.moodle-dialogue-hd {
+    background: white !important;
 }
 
 #page-wrapper {
@@ -16,8 +21,9 @@
     display: none;
     background: none;
 }
-.page-context-header{
-	display:block
+
+.page-context-header {
+    display: block
 }
 
 .pull-xs-left,
@@ -46,7 +52,8 @@ a {
 
 .active,
 .btn-default {
-    color: black !important;
+    color: white !important;
+    background-color: #1D1C1A !important;
 }
 
 .pagination {
@@ -70,10 +77,11 @@ a {
     max-width: 700px;
 }
 
-.box,.popover{
-	background-color:#0B0B0A !important;
+.box,
+.popover {
+    background-color: #0B0B0A !important;
 }
 
-.hasevent{
-	background-color:#1D1C1A !important;
+.hasevent {
+    background-color: #1D1C1A !important;
 }

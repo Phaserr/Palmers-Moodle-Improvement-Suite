@@ -1,0 +1,11 @@
+body {
+    background: #0B0B0A;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    font-size: 25px;
+}
+
+input[type="checkbox"] {
+    transform: scale(2);
+}
