@@ -69,3 +69,11 @@ a {
     font-size: 20px;
     max-width: 700px;
 }
+
+.box,.popover{
+	background-color:#0B0B0A !important;
+}
+
+.hasevent{
+	background-color:#1D1C1A !important;
+}
