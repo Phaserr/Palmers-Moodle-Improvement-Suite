@@ -1,0 +1,87 @@
+.navbar-light,.yui3-widget-content-expanded,.card-header,tbody,td,tr {
+    background: #1D1C1A !important;
+	color: white !important;
+}
+
+.moodle-dialogue-hd{
+	background:white !important;
+}
+
+#page-wrapper {
+    background: #0B0B0A !important;
+    color: white !important;
+}
+
+.site-name {
+    display: none;
+    background: none;
+}
+.page-context-header{
+	display:block
+}
+
+.pull-xs-left,
+#nav-drawer,
+.navbar-brand {
+    display: none !important;
+}
+
+.dropdown-menu,
+body,
+html {
+    background: #0B0B0A !important;
+}
+
+a {
+    color: white !important;
+}
+
+.no-overflow {
+    display: flex !important;
+    align-items: center;
+    align-content: center;
+    flex-wrap: wrap;
+    color: white !important;
+}
+
+.active,
+.btn-default {
+    color: black !important;
+}
+
+.pagination {
+    display: none !important;
+}
+
+.block_calendar_month {
+    display: none !important;
+}
+
+.card-block {
+    background: #0B0B0A !important;
+}
+
+.navbar {
+    max-height: 100vh !important;
+}
+
+.PMISintro {
+    font-size: 20px;
+    max-width: 700px;
+}
+
+.box,.popover{
+	background-color:#0B0B0A !important;
+}
+
+.hasevent{
+	background-color:#1D1C1A !important;
+}
+
+.card-block {
+	display: none !important;
+}
+
+.PMISintro {
+	position: absolute;
+}
