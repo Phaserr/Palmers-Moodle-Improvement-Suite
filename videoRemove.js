@@ -6,7 +6,8 @@ var adsOn = true
 var theme = "Dark"
 var disclaimer = true
 var splashVideo = false
-customURL = ""
+var customURL = ""
+var muteAudio = true
 
 //Defines vars for user settings
 
@@ -15,13 +16,15 @@ chrome.storage.sync.get({
     selectedAds: true,
     selectedDisclaimer: true,
     selectedSpash: false,
-    selectedURL: ""
+    selectedURL: "",
+    selectedMute: true
 }, function(items) {
     theme = items.selectedTheme;
     adsOn = items.selectedAds;
     disclaimer = items.selectedDisclaimer;
     splashVideo = items.selectedSpash;
     customURL = items.selectedURL;
+    muteAudio = items.selectedMute
 
     if (theme == "Dark") {
         let root = document.documentElement;
@@ -72,6 +75,10 @@ chrome.storage.sync.get({
 
     if (customURL != "") {
         document.getElementById('myVideo').src = customURL;
+    }
+
+    if (muteAudio == false) {
+        document.getElementById('myVideo').muted = false;
     }
     //Changes video URL
 });
