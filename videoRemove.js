@@ -23,7 +23,31 @@ chrome.storage.sync.get({
     }
 
     if (theme == "Dark") {
+        let root = document.documentElement;
 
+        root.style.setProperty('--primaryColor', "#0B0B0A");
+        root.style.setProperty('--secondaryColor', "#1D1C1A");
+        root.style.setProperty('--textColor', "white");
     }
+    if (theme == "Tree") {
+        let root = document.documentElement;
 
+        root.style.setProperty('--primaryColor', "#98FB98");
+        root.style.setProperty('--secondaryColor', "#556B2F");
+        root.style.setProperty('--textColor', "black");
+    }
+    if (theme == "Paper") {
+        let root = document.documentElement;
+
+        root.style.setProperty('--primaryColor', "#E1D9C2");
+        root.style.setProperty('--secondaryColor', "#E0E0E0");
+        root.style.setProperty('--textColor', "#78233F");
+    }
+    if (theme == "Vomit") {
+        let root = document.documentElement;
+
+        root.style.setProperty('--primaryColor', "red");
+        root.style.setProperty('--secondaryColor', "green");
+        root.style.setProperty('--textColor', "#FFC0CB");
+    }
 });

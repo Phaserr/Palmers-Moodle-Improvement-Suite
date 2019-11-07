@@ -7,7 +7,7 @@
     ],
     "options_ui": {
         "page": "options.html",
-        "open_in_tab": false
+        "open_in_tab": true
     },
     "description": "An extension that changes the way the USP College moodle website behaves.",
     "content_scripts": [{
