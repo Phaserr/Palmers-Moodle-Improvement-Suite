@@ -6,8 +6,7 @@ var adsOn = true
 var theme = "Dark"
 var disclaimer = true
 var splashVideo = false
-var customURL = ""
-var muteAudio = true
+customURL = ""
 
 //Defines vars for user settings
 
@@ -16,15 +15,13 @@ chrome.storage.sync.get({
     selectedAds: true,
     selectedDisclaimer: true,
     selectedSpash: false,
-    selectedURL: "",
-    selectedMute: true
+    selectedURL: ""
 }, function(items) {
     theme = items.selectedTheme;
     adsOn = items.selectedAds;
     disclaimer = items.selectedDisclaimer;
     splashVideo = items.selectedSpash;
     customURL = items.selectedURL;
-    muteAudio = items.selectedMute
 
     if (theme == "Dark") {
         let root = document.documentElement;
@@ -74,11 +71,18 @@ chrome.storage.sync.get({
     //Removes splash video
 
     if (customURL != "") {
-        document.getElementById('myVideo').src = customURL;
-    }
-
-    if (muteAudio == false) {
-        document.getElementById('myVideo').muted = false;
+		var insertDiv;
+		var container;
+		var webHW = document.getElementById('page-site-index')
+		insertDiv = document.createElement('div');
+		insertDiv.id = 'insertVideo';
+		insertDiv.innerHTML = '<iframe id="iframe" frameborder="0" height="1080" width="100%"> </iframe>';
+		container = document.getElementById('page-wrapper');
+		container.appendChild(insertDiv);
+		videoId = customURL.replace("https://www.youtube.com/watch?v=", "");
+		customURL = customURL.replace("watch?v=", "embed/");
+		customURL += '?controls=0&mute=1&autoplay=1&playlist=' + videoId + '&loop=1';
+        iframeVid = document.getElementById('iframe').src = customURL;
     }
     //Changes video URL
 });

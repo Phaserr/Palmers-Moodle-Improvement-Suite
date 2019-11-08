@@ -92,3 +92,7 @@ a {
 .hasevent {
     background-color: var(--secondaryColor) !important;
 }
+
+.insertVideo {
+	z-index: -99;
+}
