@@ -9,7 +9,10 @@
 .card-header,
 tbody,
 td,
-tr {
+tr,
+#course-info-container-70,
+#nav-drawer,
+.odd {
     background: var(--secondaryColor) !important;
     color: var(--textColor) !important;
 }
@@ -18,7 +21,8 @@ tr {
     background: var(--textColor) !important;
 }
 
-#page-wrapper {
+body,
+.list-group-item {
     background: var(--primaryColor) !important;
     color: var(--textColor) !important;
 }
@@ -32,15 +36,14 @@ tr {
     display: block
 }
 
-.pull-xs-left,
-#nav-drawer,
 .navbar-brand {
     display: none !important;
 }
 
 .dropdown-menu,
 body,
-html {
+html,
+.even {
     background: var(--primaryColor) !important;
 }
 
@@ -62,16 +65,15 @@ a {
     background-color: var(--secondaryColor) !important;
 }
 
-.pagination {
-    display: none !important;
-}
-
-.block_calendar_month {
+.pagination,
+.block_calendar_month,
+footer {
     display: none !important;
 }
 
 .card-block {
     background: var(--primaryColor) !important;
+    border-radius: 20px;
 }
 
 .navbar {
@@ -91,4 +93,19 @@ a {
 
 .hasevent {
     background-color: var(--secondaryColor) !important;
+}
+
+.page-context-header {
+    display: none !important;
+}
+
+#insertVideo {
+    top: 0;
+    width: 100%;
+    z-index: -1;
+    position: absolute !important;
+}
+
+body {
+    background: none !important;
 }

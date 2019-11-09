@@ -6,13 +6,17 @@ function save_options() {
     var splashVideo = document.getElementById('splashVideo').checked;
     var customURL = document.getElementById('customURL').value;
     var muteAudio = document.getElementById('muteAudio').checked;
+    var sideMenu = document.getElementById("sideMenu").checked;
+    var videoBackground = document.getElementById("videoBackground").checked;
     chrome.storage.sync.set({
         selectedTheme: theme,
         selectedAds: ads,
         selectedDisclaimer: disclaimer,
         selectedSpash: splashVideo,
         selectedURL: customURL,
-        selectedMute: muteAudio
+        selectedMute: muteAudio,
+        selectedMenu: sideMenu,
+        selectedBackground: videoBackground
     }, function() {
         // Update status to let user know options were saved.
     });
@@ -28,7 +32,9 @@ function restore_options() {
         selectedDisclaimer: true,
         selectedSpash: false,
         selectedURL: "",
-        selectedMute: true
+        selectedMute: true,
+        selectedMenu: false,
+        selectedBackground: false
     }, function(items) {
         document.getElementById('theme').value = items.selectedTheme;
         document.getElementById('ads').checked = items.selectedAds;
@@ -36,6 +42,8 @@ function restore_options() {
         document.getElementById('splashVideo').checked = items.selectedSpash;
         document.getElementById('customURL').value = items.selectedURL;
         document.getElementById('muteAudio').checked = items.selectedMute;
+        document.getElementById("sideMenu").checked = items.selectedMenu;
+        document.getElementById("videoBackground").checked = items.selectedBackground;
     });
 }
 document.addEventListener('DOMContentLoaded', restore_options);
