@@ -49,6 +49,7 @@ html,
 
 a {
     color: var(--textColor) !important;
+    background: none !important;p
 }
 
 .no-overflow {
