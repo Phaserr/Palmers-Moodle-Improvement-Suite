@@ -68,7 +68,7 @@ chrome.storage.sync.get({
     //Removes Ads
 
     if (disclaimer == true && window.location == "https://portal.uspcollege.ac.uk/moodle/") {
-        document.getElementById('page-content').innerHTML = 'Version: Accepting Angel Fish [1.1.1]<h1 id=PMIS class=PMISintro>You are using moodle with the Palmers Moodle Improvement Suite enabled. <br>This suite was created to help streamline the moodle experience. By using this extension, you accept that the developers of this software hold no responsibility for any problems caused by it and are not related to Palmers or Moodle in any way.<br>Thanks for using this software<br><a href="https://github.com/Adam-Shea/Palmers-Moodle-Improvement-Suite">Help contribute here</></h1>';
+        document.getElementById('page-content').innerHTML = 'Version: Accepting Angel Fish [1.1.3]<h1 id=PMIS class=PMISintro>You are using moodle with the Palmers Moodle Improvement Suite enabled. <br>This suite was created to help streamline the moodle experience. By using this extension, you accept that the developers of this software hold no responsibility for any problems caused by it and are not related to Palmers or Moodle in any way.<br>Thanks for using this software<br><a href="https://github.com/Adam-Shea/Palmers-Moodle-Improvement-Suite">Help contribute here</></h1>';
     }
     //Removes disclaimer
 
@@ -96,6 +96,9 @@ chrome.storage.sync.get({
     }
     //Changes video URL
 
+	if (window.location == "https://portal.uspcollege.ac.uk/moodle/course/view.php?id=70"){
+		document.getElementById("page-header").innerHTML = document.getElementById("page-header").innerHTML+"<p>Hey, If you've noticed that some of the tasks are gone, as someone removed them, Rourke has kept a backup here : <p><a href='https://drive.google.com/open?id=1K7M5X7MEUSJSSjz88cVmegX3PBcABT9i'>LINK</a>"
+	}
     if (videoBackground == true || (videoBackground == false && window.location == "https://portal.uspcollege.ac.uk/moodle/"))
         if (customURL != "") {
             insertDiv = document.createElement('div');
@@ -113,4 +116,5 @@ chrome.storage.sync.get({
             iframeVid = document.getElementById('iframe').src = customURL;
         }
         //Changes video URL
+	
 });
