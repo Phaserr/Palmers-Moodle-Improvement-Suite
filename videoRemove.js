@@ -56,8 +56,8 @@ chrome.storage.sync.get({
         let root = document.documentElement;
 
         root.style.setProperty('--primaryColor', "red");
-        root.style.setProperty('--secondaryColor', "green");
-        root.style.setProperty('--textColor', "#FFC0CB");
+        root.style.setProperty('--secondaryColor', "#39FF14");
+        root.style.setProperty('--textColor', "#FAED27");
     }
     //Adds themeing
 
@@ -68,7 +68,7 @@ chrome.storage.sync.get({
     //Removes Ads
 
     if (disclaimer == true && window.location == "https://portal.uspcollege.ac.uk/moodle/") {
-        document.getElementById('page-content').innerHTML = 'Version: Accepting Angel Fish [1.1.4]<h1 id=PMIS class=PMISintro>You are using moodle with the Palmers Moodle Improvement Suite enabled. <br>This suite was created to help streamline the moodle experience. By using this extension, you accept that the developers of this software hold no responsibility for any problems caused by it and are not related to Palmers or Moodle in any way.<br>Thanks for using this software<br><a href="https://github.com/Adam-Shea/Palmers-Moodle-Improvement-Suite">Help contribute here</></h1>';
+        document.getElementById('page-content').innerHTML = 'Version: Accepting Angel Fish [1.1.5]<h1 id=PMIS class=PMISintro>You are using moodle with the Palmers Moodle Improvement Suite enabled. <br>This suite was created to help streamline the moodle experience. By using this extension, you accept that the developers of this software hold no responsibility for any problems caused by it and are not related to Palmers or Moodle in any way.<br>Thanks for using this software<br><a href="https://github.com/Adam-Shea/Palmers-Moodle-Improvement-Suite">Help contribute here</></h1>';
     }
     //Removes disclaimer
 
