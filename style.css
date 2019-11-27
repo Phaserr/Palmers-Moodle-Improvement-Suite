@@ -15,7 +15,9 @@ tr,
 .odd {
     background: var(--secondaryColor) !important;
     color: var(--textColor) !important;
+	border-color:var(--secondaryColor) !important;
 }
+
 
 .moodle-dialogue-hd {
     background: var(--textColor) !important;
@@ -25,6 +27,7 @@ body,
 .list-group-item {
     background: var(--primaryColor) !important;
     color: var(--textColor) !important;
+	border-color:var(--secondaryColor) !important;
 }
 
 .site-name {
@@ -109,4 +112,9 @@ footer {
 
 body {
     background: none !important;
+}
+
+.card,.course-content,.section-summary,li.section.main{
+	border-color:var(--secondaryColor) !important;
+	background:var(--primaryColor) !important;
 }
