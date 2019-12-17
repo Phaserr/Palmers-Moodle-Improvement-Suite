@@ -52,7 +52,8 @@ html,
 
 a {
     color: var(--textColor) !important;
-    background: none !important;p
+    background: none !important;
+	font-weight:bold !important;
 }
 
 .no-overflow {

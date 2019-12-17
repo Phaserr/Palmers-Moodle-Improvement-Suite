@@ -80,6 +80,20 @@ chrome.storage.sync.get({
         root.style.setProperty('--secondaryColor', "#77dd77");
         root.style.setProperty('--textColor', "white");
     }
+    if (theme == "Tartan") {
+        let root = document.documentElement;
+
+        root.style.setProperty('--primaryColor', "#ff6961");
+        root.style.setProperty('--secondaryColor', "#0B0B0A");
+        root.style.setProperty('--textColor', "#fdfd96");
+    }
+    if (theme == "Dawn") {
+        let root = document.documentElement;
+
+        root.style.setProperty('--primaryColor', "#0B0B0A");
+        root.style.setProperty('--secondaryColor', "#cc3333");
+        root.style.setProperty('--textColor', "white");
+    }
 
     //Adds themeing
 
@@ -90,7 +104,7 @@ chrome.storage.sync.get({
     //Removes Ads
 
     if (disclaimer == true && window.location == "https://portal.uspcollege.ac.uk/moodle/") {
-        document.getElementById('page-content').innerHTML = 'Version: Accepting Angel Fish [1.1.7]<h1 id=PMIS class=PMISintro>You are using moodle with the Palmers Moodle Improvement Suite enabled. <br>This suite was created to help streamline the moodle experience. By using this extension, you accept that the developers of this software hold no responsibility for any problems caused by it and are not related to Palmers or Moodle in any way.<br>Thanks for using this software<br><a href="https://github.com/Adam-Shea/Palmers-Moodle-Improvement-Suite">Help contribute here</></h1>';
+        document.getElementById('page-content').innerHTML = 'Version: Accepting Angel Fish [1.1.8]<h1 id=PMIS class=PMISintro>You are using moodle with the Palmers Moodle Improvement Suite enabled. <br>This suite was created to help streamline the moodle experience. By using this extension, you accept that the developers of this software hold no responsibility for any problems caused by it and are not related to Palmers or Moodle in any way.<br>Thanks for using this software<br><br><a href="https://github.com/Adam-Shea/Palmers-Moodle-Improvement-Suite">Help contribute here</></h1>';
     }
     //Removes disclaimer
 
@@ -113,8 +127,6 @@ chrome.storage.sync.get({
         for (let i = 0; i < navBar.length; i++) {
             navBar[i].style.display = "none";
         }
-
-        console.log("test")
     }
     //Changes video URL
 
