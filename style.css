@@ -15,19 +15,22 @@ tr,
 .odd {
     background: var(--secondaryColor) !important;
     color: var(--textColor) !important;
-	border-color:var(--secondaryColor) !important;
+    border-color: var(--secondaryColor) !important;
 }
 
-
-.moodle-dialogue-hd {
-    background: var(--textColor) !important;
+#inst4,
+#inst5,
+#inst6,
+#nav-notification-popover-container,
+.moodle-dialogue-exception {
+    display: none;
 }
 
 body,
 .list-group-item {
     background: var(--primaryColor) !important;
     color: var(--textColor) !important;
-	border-color:var(--secondaryColor) !important;
+    border-color: var(--secondaryColor) !important;
 }
 
 .site-name {
@@ -53,7 +56,11 @@ html,
 a {
     color: var(--textColor) !important;
     background: none !important;
-	font-weight:bold !important;
+    cursor: pointer !important;
+}
+
+.col-xs-12 a {
+    font-weight: bold !important;
 }
 
 .no-overflow {
@@ -85,12 +92,6 @@ footer {
     max-height: 100vh !important;
 }
 
-.PMISintro {
-    font-size: 20px;
-    max-width: 700px;
-    position: absolute;
-}
-
 .box,
 .popover {
     background-color: var(--primaryColor) !important;
@@ -115,7 +116,49 @@ body {
     background: none !important;
 }
 
-.card,.course-content,.section-summary,li.section.main{
-	border-color:var(--secondaryColor) !important;
-	background:var(--primaryColor) !important;
+.card,
+.course-content,
+.section-summary,
+li.section.main {
+    border-color: var(--secondaryColor) !important;
+    background: var(--primaryColor) !important;
+}
+
+.contentBar {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.flashTitle {
+    font-size: 40px;
+}
+
+article {
+    max-width: 380px;
+    text-align: center;
+    background: var(--secondaryColor) !important;
+    border-radius: 15px;
+    margin: 10px;
+    padding: 10px;
+}
+
+article p {
+    font-size: 17px;
+}
+
+.articleTitle {
+    font-size: 30px;
+    margin-bottom: 5px;
+    padding-bottom: 5px;
+    border-bottom: 3px solid var(--textColor);
+}
+
+.title {
+    font-size: 100px;
+    padding-top: 0px;
+    margin-top: -180px;
+}
+
+#inst375 a {
+    font-weight: normal !important;
 }

@@ -2,15 +2,18 @@ if (window.location == "https://portal.uspcollege.ac.uk/moodle/") {
     document.getElementById("page-header").style.display = "none";
 }
 
-var adsOn = true
-var theme = "Dark"
-var disclaimer = true
-var splashVideo = false
-var customURL = ""
-var muteAudio = true
-var sideMenu = false
-var videoBackground = false
-    //Defines vars for user settings
+version = "Version: Look Ma, Dynamic Content! [1.2.0]";
+
+var adsOn = true;
+var theme = "Dark";
+var disclaimer = true;
+var splashVideo = false;
+var customURL = "";
+var muteAudio = true;
+var sideMenu = false;
+var videoBackground = false;
+var USPFlash = true;
+//Defines vars for user settings
 
 chrome.storage.sync.get({
     selectedTheme: "Dark", //Default Values
@@ -20,7 +23,8 @@ chrome.storage.sync.get({
     selectedURL: "",
     selectedMute: true,
     selectedMenu: false,
-    selectedBackground: false
+    selectedBackground: false,
+    selectedUspFlash: true
 }, function(items) {
     theme = items.selectedTheme;
     adsOn = items.selectedAds;
@@ -29,7 +33,13 @@ chrome.storage.sync.get({
     customURL = items.selectedURL;
     muteAudio = items.selectedMute;
     sideMenu = items.selectedMenu;
+    USPFlash = items.selectedUspFlash;
     videoBackground = items.selectedBackground;
+
+    if (window.location == "https://portal.uspcollege.ac.uk/moodle/" || window.location == "https://portal.uspcollege.ac.uk/moodle/my/" && USPFlash == true) {
+        loadFlashUSP();
+    }
+
 
     if (theme == "Dark") {
         let root = document.documentElement;
@@ -48,8 +58,8 @@ chrome.storage.sync.get({
     if (theme == "Paper") {
         let root = document.documentElement;
 
-        root.style.setProperty('--primaryColor', "#E1D9C2");
-        root.style.setProperty('--secondaryColor', "#E0E0E0");
+        root.style.setProperty('--primaryColor', "#F8E0C8");
+        root.style.setProperty('--secondaryColor', "#B99566");
         root.style.setProperty('--textColor', "#78233F");
     }
     if (theme == "Vomit") {
@@ -62,32 +72,18 @@ chrome.storage.sync.get({
     if (theme == "Candy") {
         let root = document.documentElement;
 
-        root.style.setProperty('--primaryColor', "#81D4EC");
-        root.style.setProperty('--secondaryColor', "#F0B2DF");
-        root.style.setProperty('--textColor', "white");
+        root.style.setProperty('--primaryColor', "#c9fdff");
+        root.style.setProperty('--secondaryColor', "#ffcbcb");
+        root.style.setProperty('--textColor', "black");
     }
     if (theme == "Rhubarb&Custard") {
         let root = document.documentElement;
 
-        root.style.setProperty('--primaryColor', "#800080");
-        root.style.setProperty('--secondaryColor', "#9b870c");
-        root.style.setProperty('--textColor', "white");
+        root.style.setProperty('--primaryColor', "#9aceff");
+        root.style.setProperty('--secondaryColor', "#4a69bb");
+        root.style.setProperty('--textColor', "black");
     }
-    if (theme == "Pastel") {
-        let root = document.documentElement;
-
-        root.style.setProperty('--primaryColor', "#b19cd9");
-        root.style.setProperty('--secondaryColor', "#77dd77");
-        root.style.setProperty('--textColor', "white");
-    }
-    if (theme == "Tartan") {
-        let root = document.documentElement;
-
-        root.style.setProperty('--primaryColor', "#ff6961");
-        root.style.setProperty('--secondaryColor', "#0B0B0A");
-        root.style.setProperty('--textColor', "#fdfd96");
-    }
-    if (theme == "Dawn") {
+    if (theme == "HellSpawn") {
         let root = document.documentElement;
 
         root.style.setProperty('--primaryColor', "#0B0B0A");
@@ -103,14 +99,13 @@ chrome.storage.sync.get({
     }
     //Removes Ads
 
-    if (disclaimer == true && window.location == "https://portal.uspcollege.ac.uk/moodle/") {
-        document.getElementById('page-content').innerHTML = 'Version: Accepting Angel Fish [1.1.8]<h1 id=PMIS class=PMISintro>You are using moodle with the Palmers Moodle Improvement Suite enabled. <br>This suite was created to help streamline the moodle experience. By using this extension, you accept that the developers of this software hold no responsibility for any problems caused by it and are not related to Palmers or Moodle in any way.<br>Thanks for using this software<br><br><a href="https://github.com/Adam-Shea/Palmers-Moodle-Improvement-Suite">Help contribute here</></h1>';
-    }
-    //Removes disclaimer
-
     if (splashVideo == false) {
         var video = document.getElementById('myVideo');
-        video.parentElement.removeChild(video);
+        try {
+            video.parentElement.removeChild(video)
+        } catch (error) {
+
+        }
     }
     //Removes splash video
 
@@ -124,15 +119,21 @@ chrome.storage.sync.get({
 
     if (sideMenu == false) {
         navBar = document.querySelectorAll(".pull-xs-left");
+        try {
+            document.getElementById("nav-drawer").parentNode.removeChild(document.getElementById("nav-drawer"));
+            document.getElementById("page-my-index").style.margin = "0px";
+        } catch (error) {
+
+        }
         for (let i = 0; i < navBar.length; i++) {
-            navBar[i].style.display = "none";
+            navBar[i].parentNode.removeChild(navBar[i]);
         }
     }
     //Changes video URL
 
-	if (window.location == "https://portal.uspcollege.ac.uk/moodle/course/view.php?id=70"){
-		document.getElementById("page-header").innerHTML = document.getElementById("page-header").innerHTML+"<p>Hey, If you've noticed that some of the tasks are gone, as someone removed them, Rourke has kept a backup here : <p><a href='https://drive.google.com/open?id=1K7M5X7MEUSJSSjz88cVmegX3PBcABT9i'>LINK</a>"
-	}
+    if (window.location == "https://portal.uspcollege.ac.uk/moodle/course/view.php?id=70") {
+        document.getElementById("page-header").innerHTML = document.getElementById("page-header").innerHTML + "<p>Hey, If you've noticed that some of the tasks are gone, as someone removed them, Rourke has kept a backup here : <p><a href='https://drive.google.com/open?id=1K7M5X7MEUSJSSjz88cVmegX3PBcABT9i'>LINK</a>"
+    }
     if (videoBackground == true || (videoBackground == false && window.location == "https://portal.uspcollege.ac.uk/moodle/"))
         if (customURL != "") {
             insertDiv = document.createElement('div');
@@ -150,5 +151,47 @@ chrome.storage.sync.get({
             iframeVid = document.getElementById('iframe').src = customURL;
         }
         //Changes video URL
-	
+
 });
+
+function loadFlashUSP() {
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState == XMLHttpRequest.DONE) {
+            USPFlash = (xhr.responseText);
+            console.log(USPFlash);
+            USPFlash = (USPFlash.toString());
+            USPFlash = USPFlash.split("~~");
+            window.USPnews = USPFlash[0];
+            window.USPmemes = USPFlash[1];
+            window.USPupdates = USPFlash[2];
+
+
+            document.getElementById("region-main").innerHTML = `<h1 class=title id=title><br>USP Flash</h1>
+        <p>` + version + `</p>
+        <div>
+        <h2 class=flashTitle>Current News:</h2>
+        <div class=contentBar>` + USPnews + `
+
+        </div>
+        <h2 class=flashTitle>Internet Trends:</h2>
+        <div class=contentBar>` + USPmemes + `
+
+        </div>
+        <h2 class=flashTitle>PMIS Updates:</h2>
+        <div class=contentBar>` + USPupdates + `
+
+        </div>
+        `
+        }
+        if (window.location == "https://portal.uspcollege.ac.uk/moodle/") {
+            try {
+                document.getElementById("title").style.marginTop = "-90px";
+            } catch (error) {
+
+            }
+        }
+    }
+    xhr.open('GET', 'https://adam-shea.github.io/Palmers-Moodle-Improvement-Suite/', true);
+    xhr.send(null);
+}

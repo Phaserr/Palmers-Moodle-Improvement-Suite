@@ -1,6 +1,12 @@
+:root {
+    --primaryColor: white;
+    --secondaryColor: #57b6ef;
+    --textColor: black;
+}
+
 body {
-    background: #0B0B0A;
-    color: white;
+    background: var(--primaryColor);
+    color: var(--textColor);
     font-family: 'Roboto', sans-serif;
     text-align: center;
     font-size: 25px;
@@ -8,4 +14,39 @@ body {
 
 input[type="checkbox"] {
     transform: scale(2);
+}
+
+div {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 20px;
+}
+
+div div {
+    align-items: center;
+    flex-direction: column;
+    max-width: 300px;
+    background-color: var(--secondaryColor);
+    border-radius: 15px;
+    padding: 10px;
+}
+
+p {
+    font-size: 17px;
+}
+
+h1 {
+    font-size: 30px;
+}
+
+button {
+    background-color: var(--secondaryColor);
+    color: var(--textColor);
+    border: none;
+    border-radius: 15px;
+    padding: 10px 20px;
+}
+
+button:hover {
+    cursor: pointer;
 }
