@@ -2,7 +2,8 @@ if (window.location == "https://portal.uspcollege.ac.uk/moodle/") {
     document.getElementById("page-header").style.display = "none";
 }
 
-version = "Version: Look Ma, Dynamic Content! [1.2.0]";
+var version = "1.2.1";
+var buildNum = 10;
 
 var adsOn = true;
 var theme = "Dark";
@@ -159,22 +160,27 @@ function loadFlashUSP() {
     xhr.onreadystatechange = function() {
         if (xhr.readyState == XMLHttpRequest.DONE) {
             USPFlash = (xhr.responseText);
-            console.log(USPFlash);
             USPFlash = (USPFlash.toString());
             USPFlash = USPFlash.split("~~");
             window.USPnews = USPFlash[0];
             window.USPmemes = USPFlash[1];
             window.USPupdates = USPFlash[2];
+            window.PMISver = USPFlash[3];
+
+            var versionTitle = "";
+            if (parseFloat(PMISver) > parseFloat(buildNum)) {
+                versionTitle = "        NEW UPDATE AVAILABLE"
+            }
 
 
             document.getElementById("region-main").innerHTML = `<h1 class=title id=title><br>USP Flash</h1>
-        <p>` + version + `</p>
+        <p>Version : Look Ma, Dynamic Content  [` + version + "]" + versionTitle + `</p>
         <div>
         <h2 class=flashTitle>Current News:</h2>
         <div class=contentBar>` + USPnews + `
 
         </div>
-        <h2 class=flashTitle>Internet Trends:</h2>
+        <h2 class=flashTitle>Internet Memes:</h2>
         <div class=contentBar>` + USPmemes + `
 
         </div>
