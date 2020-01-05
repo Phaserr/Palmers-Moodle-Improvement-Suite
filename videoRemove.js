@@ -2,8 +2,8 @@ if (window.location == "https://portal.uspcollege.ac.uk/moodle/") {
     document.getElementById("page-header").style.display = "none";
 }
 
-var version = "1.2.1";
-var buildNum = 10;
+var version = "1.2.2";
+var buildNum = 11;
 
 var adsOn = true;
 var theme = "Dark";
@@ -25,7 +25,8 @@ chrome.storage.sync.get({
     selectedMute: true,
     selectedMenu: false,
     selectedBackground: false,
-    selectedUspFlash: true
+    selectedUspFlash: true,
+    selectedCustomFooter: true
 }, function(items) {
     theme = items.selectedTheme;
     adsOn = items.selectedAds;
@@ -36,6 +37,7 @@ chrome.storage.sync.get({
     sideMenu = items.selectedMenu;
     USPFlash = items.selectedUspFlash;
     videoBackground = items.selectedBackground;
+    customFooter = items.selectedCustomFooter;
 
     if (window.location == "https://portal.uspcollege.ac.uk/moodle/" || window.location == "https://portal.uspcollege.ac.uk/moodle/my/" && USPFlash == true) {
         loadFlashUSP();
@@ -91,6 +93,20 @@ chrome.storage.sync.get({
         root.style.setProperty('--secondaryColor', "#cc3333");
         root.style.setProperty('--textColor', "white");
     }
+    if (theme == "Transparent") {
+        let root = document.documentElement;
+
+        root.style.setProperty('--primaryColor', "rgba(0, 0, 0, 0)");
+        root.style.setProperty('--secondaryColor', "rgba(0, 0, 0, 0.2)");
+        root.style.setProperty('--textColor', "white");
+    }
+    if (theme == "uspTrue") {
+        let root = document.documentElement;
+
+        root.style.setProperty('--primaryColor', "#0C3455");
+        root.style.setProperty('--secondaryColor', "#0A2947");
+        root.style.setProperty('--textColor', "white");
+    }
 
     //Adds themeing
 
@@ -111,7 +127,11 @@ chrome.storage.sync.get({
     //Removes splash video
 
     if (customURL != "") {
-        document.getElementById('myVideo').src = customURL;
+        try {
+            document.getElementById('myVideo').src = customURL;
+        } catch (error) {
+
+        }
     }
 
     if (muteAudio == false) {
@@ -122,6 +142,10 @@ chrome.storage.sync.get({
         navBar = document.querySelectorAll(".pull-xs-left");
         try {
             document.getElementById("nav-drawer").parentNode.removeChild(document.getElementById("nav-drawer"));
+        } catch (error) {
+
+        }
+        try {
             document.getElementById("page-my-index").style.margin = "0px";
         } catch (error) {
 
@@ -131,6 +155,97 @@ chrome.storage.sync.get({
         }
     }
     //Changes video URL
+
+    if (customFooter == true) {
+        d = new Date();
+        currentDay = d.getDay();
+        currentDate = d.getDate();
+        currentMonth = d.getMonth;
+        customMessage = 'Have an awesome day x';
+        if (currentDay == 0 || currentDay == 6) {
+            customMessage = "It's the weekend! You should make sure to have a rest once in a while!"
+        }
+        if (currentDay == 3) {
+            customMessage = "It's Wednesday my dudes"
+        }
+        if (currentDate == 1) {
+            customMessage = "Pinch punch first day of the month!"
+        }
+        if (currentDate == 8 && currentMonth == 0) {
+            customMessage = "Today is a cool day!"
+        }
+        if (currentDate == 31 && currentMonth == 9) {
+            customMessage = "<a href='https://www.youtube.com/watch?v=-1dSY6ZuXEY'>Happy Halloween! Have a spooky day!</a>"
+        }
+        if (currentDate == 25 && currentMonth == 11) {
+            customMessage = "Merry Christmas. I hope you have loads of fun today!"
+        }
+        if (currentDate == 26 && currentMonth == 11) {
+            customMessage = "Make sure to relax and chill on boxing day!"
+        }
+        if (currentDate == 31 && currentMonth == 11) {
+            customMessage = "Happy new years eve! Are you counting down the minutes till new year already?"
+        }
+        if (currentDate == 1 && currentMonth == 0) {
+            customMessage = "Happy new years day! I cannot believe a year has passed already"
+        }
+        if (currentDate == 14 && currentMonth == 1) {
+            customMessage = "Have a good valentines day. Did you get a card from anyone?"
+        }
+        if (currentDate == 31 && currentMonth == 9) {
+            customMessage = "<a href='https://en.wikipedia.org/wiki/World_Savings_Day'>It's world savings day. Are you saving the fruits of your labour?</a>"
+        }
+        if (currentDate == 6 && currentMonth == 0) {
+            customMessage = "<a href='https://en.wikipedia.org/wiki/Epiphany_(holiday)'>Today is Epiphany, have you taken down your decorations yet?</a>"
+        }
+        if (currentDate == 1 && currentMonth == 4) {
+            customMessage = "<a href='https://en.wikipedia.org/wiki/International_Workers%27_Day'>It's international Workers day, did you get the day off?</a>"
+        }
+        if (currentDate == 12 && currentMonth == 0) {
+            customMessage = "It's Rubber Duck day. Have you got one to explain your thoughts to yet?"
+        }
+        if (currentDate == 19 && currentMonth == 0) {
+            customMessage = "It's Popcorn day in the US. Are you jealous?"
+        }
+        if (currentDate == 14 && currentMonth == 3) {
+            customMessage = "It's Pi day! But only if you read your dates awkwardly"
+        }
+        if (currentDate == 25 && currentMonth == 4) {
+            customMessage = "Happy Towl Day ;)"
+        }
+        if (currentDate == 19 && currentMonth == 8) {
+            customMessage = "ARRRRRRR IT'S TALK LIKE A PIRATE DAY!!!!"
+        }
+        if (currentDate == 4 && currentMonth == 4) {
+            customMessage = "May the 4th be with you"
+        }
+        if (currentDate == 6 && currentMonth == 4) {
+            customMessage = "Revenge of the sixth"
+        }
+        if (currentDate == 13 && currentMonth == 2) {
+            customMessage = "Get your red noses on!"
+        }
+        if (currentDate == 20 && currentMonth == 3) {
+            customMessage = "It's getting pretty dank in here for some reason"
+        }
+        if (currentDate == 4 && currentMonth == 5) {
+            customMessage = "Give you cat a hug and cuddle for me today"
+        }
+        if (currentDate == 5 && currentMonth == 5) {
+            customMessage = "Idk if I can make it to work today"
+        }
+        if (currentDate == 23 && currentMonth == 9) {
+            customMessage = "Get ready fellow chemists, it's mole day!"
+        }
+        try {
+            document.getElementById("page-footer").innerHTML = "<div class=PMISFooter><h1>Useful Links</h1><ul><li><a href='https://portal.uspcollege.ac.uk/moodle/my/'>DashBoard</a></li><li><a href='https://portal.uspcollege.ac.uk/moodle/course/index.php'>All Courses</a></li><li><a href='https://proparent.seevic-college.ac.uk/timetable/?Grid=Show'>Time Table</a></li><li><a href='<li><a href='https://proparent.seevic-college.ac.uk/timetable/?Grid=Show'>Student Email</a></li></ul><p>" + customMessage + "</p></div>"
+            document.getElementById("page-footer").style = 'display:block !important';
+        } catch (error) {
+
+        }
+
+    }
+
 
     if (window.location == "https://portal.uspcollege.ac.uk/moodle/course/view.php?id=70") {
         document.getElementById("page-header").innerHTML = document.getElementById("page-header").innerHTML + "<p>Hey, If you've noticed that some of the tasks are gone, as someone removed them, Rourke has kept a backup here : <p><a href='https://drive.google.com/open?id=1K7M5X7MEUSJSSjz88cVmegX3PBcABT9i'>LINK</a>"
@@ -152,8 +267,8 @@ chrome.storage.sync.get({
             iframeVid = document.getElementById('iframe').src = customURL;
         }
         //Changes video URL
-
 });
+
 
 function loadFlashUSP() {
     var xhr = new XMLHttpRequest();

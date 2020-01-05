@@ -166,3 +166,21 @@ article p {
 iframe {
     margin: 5px;
 }
+
+footer {
+    background: #3A424C;
+}
+
+.PMISFooter {
+    text-align: center;
+}
+
+.PMISFooter ul {
+    display: flex;
+    justify-content: center;
+}
+
+.PMISFooter li {
+    margin: 0px 10px;
+    list-style-type: none;
+}

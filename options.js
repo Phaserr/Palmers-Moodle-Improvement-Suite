@@ -8,6 +8,7 @@ function save_options() {
     var sideMenu = document.getElementById("sideMenu").checked;
     var uspFlash = document.getElementById("uspFlash").checked;
     var videoBackground = document.getElementById("videoBackground").checked;
+    var customFooter = document.getElementById("customFooter").checked;
     chrome.storage.sync.set({
         selectedTheme: theme,
         selectedAds: ads,
@@ -17,7 +18,8 @@ function save_options() {
         selectedMute: muteAudio,
         selectedMenu: sideMenu,
         selectedBackground: videoBackground,
-        selectedUspFlash: uspFlash
+        selectedUspFlash: uspFlash,
+        selectedCustomFooter: customFooter
     }, function() {
         // Update status to let user know options were saved.
     });
@@ -38,7 +40,8 @@ function restore_options() {
         selectedMute: true,
         selectedMenu: false,
         selectedBackground: false,
-        selectedUspFlash: true
+        selectedUspFlash: true,
+        selectedCustomFooter: true
     }, function(items) {
         document.getElementById('theme').value = items.selectedTheme;
         document.getElementById('ads').checked = items.selectedAds;
@@ -48,7 +51,7 @@ function restore_options() {
         document.getElementById("sideMenu").checked = items.selectedMenu;
         document.getElementById("uspFlash").checked = items.selectedUspFlash;
         document.getElementById("videoBackground").checked = items.selectedBackground;
-
+        document.getElementById("customFooter").checked = items.selectedCustomFooter;
     });
 }
 document.addEventListener('DOMContentLoaded', restore_options);
@@ -124,6 +127,13 @@ function changeTheme() {
 
             root.style.setProperty('--primaryColor', "#0B0B0A");
             root.style.setProperty('--secondaryColor', "#cc3333");
+            root.style.setProperty('--textColor', "white");
+        }
+        if (theme == "Transparent") {
+            let root = document.documentElement;
+
+            root.style.setProperty('--primaryColor', "rgba(0, 0, 0, 0)");
+            root.style.setProperty('--secondaryColor', "rgba(0, 0, 0, 0.2)");
             root.style.setProperty('--textColor', "white");
         }
     })
