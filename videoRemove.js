@@ -160,7 +160,7 @@ chrome.storage.sync.get({
         d = new Date();
         currentDay = d.getDay();
         currentDate = d.getDate();
-        currentMonth = d.getMonth;
+        currentMonth = d.getMonth();
         customMessage = 'Have an awesome day x';
         if (currentDay == 0 || currentDay == 6) {
             customMessage = "It's the weekend! You should make sure to have a rest once in a while!"
